@@ -1,20 +1,73 @@
+
 <!DOCTYPE html>
-<html lang="ru">
-    <head>
-        <title>Пробная страница</title>
-        <meta charset ="Utf-8">
-        <meta name="author" content="Усков Егор">
-    </head>
-    <body>
-        <ol start="1" type="a">
-            <li><b title="за 50 рублей">Купи молока</b></li>
-            <li>Купи мяса</li>
-            <li>Купи хлеба</li>
-            <li> <a href="\123.php" target="_self">Анфисочка</a></li>
-        </ol>
-        <form>
-            <label>Любимой</label>
-            <input type="text" maxlength="30" placeholder="123">
-        </form>
-    </body>
-</html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #f7a8b8, #ffe0e6);
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+        #heart {
+            font-size: 100px;
+            animation: heartbeat 1s infinite alternate;
+            color: red;
+            margin-top: 20px;
+        }
+        @keyframes heartbeat {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #ff4785;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff5b99;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 30px;
+            color: #ff4785;
+            font-family: 'Dancing Script', cursive;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: textAnimation 2s ease-in-out;
+        }
+        @keyframes textAnimation {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <button id="startButton" onclick="showSurprise()">Показать сюрприз!</button>
+    <div id="heart" hidden>❤️</div>
+    <p id="message"></p>
+
+    <script>
+        function showSurprise() {
+            document.getElementById('startButton').style.display = 'none';
+            document.getElementById('heart').hidden = false;
+            document.getElementById('heart').style.fontSize = '200px';
+            document.getElementById('message').innerText = `Анфиса, этот сайт создан, чтобы сказать, как ты важна и любима! 💝`;
+            document.getElementById('message').style.fontSize = '40px';
+        }
+    </script>
+</body>
